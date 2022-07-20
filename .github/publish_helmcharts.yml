@@ -34,7 +34,7 @@ jobs:
     #   with:
     #    build_dir: charts
     #    github_token: ${{ secrets.PATOKEN}}       
-    - name: Publish charts on Github Pages
+    - name: Publish helmcharts on Github Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
         branch: gh-pages
