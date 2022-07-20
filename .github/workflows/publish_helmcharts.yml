@@ -39,7 +39,7 @@ jobs:
       with:
         branch: gh-pages
         folder: charts
-  Publish_on_artifacthub:
+  Publish_on_artifact_hub:
     runs-on: ubuntu-latest
     needs: [ publish-helmchart ]
     steps:
