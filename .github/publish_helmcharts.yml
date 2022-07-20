@@ -1,0 +1,41 @@
+name: Helm Publish
+
+on:
+  push:
+    branches: [ chehelm ] 
+
+    # paths-ignore:
+    #   - README.md
+jobs:
+  publish-helmchart:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Create charts directory
+      run: |
+        pwd
+        mkdir charts
+        ls
+    - name: copy helm-charts to charts folder
+      run: |
+        cp -a $GITHUB_WORKSPACE/democharts/*.tgz  $GITHUB_WORKSPACE/charts 
+        cp -a $GITHUB_WORKSPACE/democharts/README.md  $GITHUB_WORKSPACE/charts    
+
+    - name: Create index file
+      run: helm repo index $GITHUB_WORKSPACE/charts  
+
+    - name: check content of charts
+      run: |
+       cd charts
+       ls
+
+    # - name: Publish on GitHub Pages
+    #   uses: ftnext/action-push-ghpages@v1.0.0
+    #   with:
+    #    build_dir: charts
+    #    github_token: ${{ secrets.PATOKEN}}       
+    - name: Publish charts on Github Pages
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages
+        folder: charts
