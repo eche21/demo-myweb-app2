@@ -39,3 +39,10 @@ jobs:
       with:
         branch: gh-pages
         folder: charts
+  Publish_on_artifacthub:
+    runs-on: ubuntu-latest
+    needs: [ publish-helmchart ]
+    steps:
+    - uses: actions/checkout@v2
+    - name: publish helm charts on artifact hub
+      run: helm repo add mywebapp2 https://eche21.github.io/demo-myweb-app2/
