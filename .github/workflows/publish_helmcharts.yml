@@ -28,7 +28,11 @@ jobs:
       run: |
        cd charts
        ls
-
+    - name: Create a mywebapp forlder in charts
+      run: |
+       cd $GITHUB_WORKSPACE/charts
+       mkdir mycharts
+       ls   
     # - name: Publish on GitHub Pages
     #   uses: ftnext/action-push-ghpages@v1.0.0
     #   with:
