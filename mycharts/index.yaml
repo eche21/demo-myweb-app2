@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  mywebapp2:
+  - apiVersion: v1
+    appVersion: 1.1.0
+    created: "2022-07-22T21:53:57.265313893Z"
+    description: This is the chart for httpd
+    digest: 49640ebd1c5e7396461fe92201b07ab14339b03f185d65ebea15bfcf66ec3ab7
+    name: mywebapp2
+    urls:
+    - mywebapp2-0.0.5.tgz
+    version: 0.0.5
+generated: "2022-07-22T21:53:57.264872868Z"
