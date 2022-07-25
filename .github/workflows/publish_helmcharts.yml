@@ -45,14 +45,14 @@ jobs:
     - name: Move files from charts to mycharts
       run: |
         mv    $GITHUB_WORKSPACE/charts/*.tgz $GITHUB_WORKSPACE/charts/mycharts
-
+        mv $GITHUB_WORKSPACE/charts/README.md $GITHUB_WORKSPACE/charts/mycharts
         mv $GITHUB_WORKSPACE/charts/index.yaml $GITHUB_WORKSPACE/charts/mycharts
     # - name: Publish on GitHub Pages
     #   uses: ftnext/action-push-ghpages@v1.0.0
     #   with:
     #    build_dir: charts
     #    github_token: ${{ secrets.PATOKEN}}       
-#        mv $GITHUB_WORKSPACE/charts/README.md $GITHUB_WORKSPACE/charts/mycharts
+
     - name: Publish on Github Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
