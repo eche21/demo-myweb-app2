@@ -2,7 +2,7 @@ name: Helm Publish
 
 on:
   push:
-    branches: [ none ] 
+    branches: [ chehelm ] 
 
     # paths-ignore:
     #   - README.md
@@ -56,5 +56,5 @@ jobs:
     - name: Publish on Github Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
-        branch: my-gh-pages
+        branch: gh-pages2
         folder: charts
