@@ -1,0 +1,22 @@
+name: Empty-gh-pages-branch
+
+on:
+  push:
+    branches: [ chehelm ] 
+
+    # paths-ignore:
+    #   - README.md
+jobs:
+  create-empty-branch:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Configure git repo 
+      run: |
+         git config user.email "${{ secrets.EMAIL }}"
+         git config user.name "${{ secrets.USER }}"     
+    - name: Create empty gh-pages branch
+      run: | 
+           git switch --orphan gh-pages2
+           git commit --allow-empty -m "Initial commit"
+           git push -u origin gh-pages2

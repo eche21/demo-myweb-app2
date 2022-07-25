@@ -2,7 +2,7 @@ name: Helm Publish
 
 on:
   push:
-    branches: [ chehelm ] 
+    branches: [ none ] 
 
     # paths-ignore:
     #   - README.md
