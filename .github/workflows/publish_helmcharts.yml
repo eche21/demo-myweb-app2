@@ -40,13 +40,13 @@ jobs:
     - name: Create a mywebapp forlder in charts
       run: |
        cd $GITHUB_WORKSPACE/charts
-       mkdir mycharts
+       mkdir mychart
        
     - name: Move files from charts to mycharts
       run: |
-        mv    $GITHUB_WORKSPACE/charts/*.tgz $GITHUB_WORKSPACE/charts/mycharts
+        mv    $GITHUB_WORKSPACE/charts/*.tgz $GITHUB_WORKSPACE/charts/mychart
 
-        mv $GITHUB_WORKSPACE/charts/index.yaml $GITHUB_WORKSPACE/charts/mycharts
+        mv $GITHUB_WORKSPACE/charts/index.yaml $GITHUB_WORKSPACE/charts/mychart
     # - name: Publish on GitHub Pages
     #   uses: ftnext/action-push-ghpages@v1.0.0
     #   with:
