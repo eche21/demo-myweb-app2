@@ -11,6 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: Configure git repo 
+      run: |
+         git config user.email "${{ secrets.EMAIL }}"
+         git config user.name "${{ secrets.USER }}"     
+    - name: Create empty aws-gh-pages branch
+      run: | 
+           git switch --orphan my-gh-pages
+           git commit --allow-empty -m "Initial commit"
+           git push -u origin my-gh-pages
     - name: Create charts directory
       run: |
         pwd
@@ -43,8 +52,9 @@ jobs:
     #   with:
     #    build_dir: charts
     #    github_token: ${{ secrets.PATOKEN}}       
+
     - name: Publish on Github Pages
       uses: JamesIves/github-pages-deploy-action@v4
       with:
-        branch: gh-pages
+        branch: my-gh-pages
         folder: charts/mycharts
